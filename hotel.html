@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DreamStay Hotel</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url('https://content.tui.co.uk/adamtui/2016_9/30_7/0ac7e21c-1b61-458b-8c91-a6910075fd24/MAL_PBY_0220WebOriginalCompressed.jpg?i10c=img.resize(width:658);img.crop(width:658%2Cheight:370)');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: #333;
+}
+    @keyframes bgFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    header {
+      background: linear-gradient(to right, #003580, #007BFF);
+      color: white;
+      text-align: center;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      position: relative;
+    }
+    header h1 {
+      font-size: 3em;
+      background: linear-gradient(90deg, #ff6ec4, #7873f5, #4ade80, #facc15);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbowTitle 6s linear infinite;
+    }
+    @keyframes rainbowTitle {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .hotel-logo {
+      width: 60px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+    .location {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9em;
+    }
+    .location img {
+      width: 20px;
+      height: 20px;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background-color: #0056b3;
+      padding: 10px;
+      animation: fadeInDown 1s ease-in;
+    }
+    nav a {
+      color: white;
+      margin: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      padding: 10px 20px;
+      border-radius: 20px;
+      transition: all 0.4s ease;
+    }
+    nav a:hover {
+      background: linear-gradient(to right, #ff6a00, #ee0979);
+      transform: scale(1.1);
+    }
+    section {
+      display: none;
+      padding: 40px;
+      text-align: center;
+      animation: fadeUp 1s ease;
+      background: rgba(255, 255, 255, 0.8);
+      margin: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .active { display: block; }
+    .form-box {
+      max-width: 400px;
+      margin: 0 auto;
+      background: #ffffffcc;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: linear-gradient(to right, #36d1dc, #5b86e5);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: linear-gradient(to right, #f7971e, #ffd200);
+    }
+    #tokenCard {
+      margin-top: 20px;
+      padding: 20px;
+      border: 2px dashed #007BFF;
+      background: #e8f0fe;
+      display: none;
+      border-radius: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img class="hotel-logo" src="https://img.freepik.com/vektoren-premium/illustrationsdesign-des-tropischen-paradiesstrandes-vintager-reiseentwurf_621434-367.jpg" alt="Hotel Logo">
+    <div class="location">
+      <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="Location Icon" style="width: 24px; height: 24px;">
+
+      <span>SANGLI, India</span>
+    </div>
+    <h1>Paradies Hotel</h1>
+    <p>Your comfort is our priority</p>
+  </header>
+
+  <nav>
+    <a href="#" onclick="showPage('home')">Home</a>
+    <a href="#" onclick="showPage('register')">Register</a>
+    <a href="#" onclick="showPage('login')">Login</a>
+    <a href="#" onclick="showPage('about')">About</a>
+    <a href="#" onclick="showPage('rooms')">Rooms</a>
+    <a href="#" onclick="showPage('booking')">Booking</a>
+    <a href="#" onclick="showPage('gallery')">Gallery</a>
+    <a href="#" onclick="showPage('contact')">Contact</a>
+  </nav>
+
+  <section id="home" class="active">
+    <h2>Welcome to ParaDies </h2>
+    <p>Enjoy a luxurious experience like never before.</p>
+  </section>
+
+  <section id="register">
+    <h2>Register</h2>
+    <div class="form-box">
+      <input type="text" id="regName" placeholder="Full Name">
+      <input type="email" id="regEmail" placeholder="Email">
+      <input type="tel" id="regPhone" placeholder="Phone Number">
+      <select id="regRoom">
+        <option value="Deluxe">Deluxe</option>
+        <option value="Suite">Suite</option>
+        <option value="Executive">Executive</option>
+      </select>
+      <button onclick="registerUser()">Submit</button>
+    </div>
+    <div id="tokenCard"></div>
+  </section>
+
+  <section id="login">
+    <h2>Login</h2>
+    <div class="form-box">
+      <input type="email" id="loginEmail" placeholder="Enter registered email">
+      <button onclick="loginUser()">Login</button>
+      <p id="loginMessage" style="margin-top:10px;"></p>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>ParaDies is a luxury hotel offering elegant rooms and world-class service for your perfect holiday.</p>
+  </section>
+
+<section id="rooms">
+  <h2>Rooms</h2>
+  <p>Explore our Deluxe, Executive, and Suite rooms, all equipped with modern amenities and stunning views.</p>
+  <img src="https://assets.architecturaldigest.in/photos/65b2aecf269da4a0ee6c9b40/master/w_1600%2Cc_limit/atr.royalmansion-bedroom2-mr.jpg"
+       alt="Luxury Hotel Room"
+       style="width: 90%; max-width: 800px; margin-top: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+</section>
+
+
+  <section id="booking">
+    <h2>Booking</h2>
+    <p>Book your stay now with flexible dates and exclusive packages.</p>
+  </section>
+
+  <section id="gallery">
+  <h2>Gallery</h2>
+  <p>Take a look at our luxurious rooms, poolside, restaurant, and more.</p>
+  <img src="https://content.tui.co.uk/adamtui/2016_9/30_7/0ac7e21c-1b61-458b-8c91-a6910075fd24/MAL_PBY_0220WebOriginalCompressed.jpg?i10c=img.resize(width:658);img.crop(width:658%2Cheight:370)"
+       alt="Hotel View"
+       style="width: 90%; max-width: 800px; border-radius: 12px; margin-top: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+      <img src="https://media.luxair.lu/luxairtours/mt/malta/malta/mellieha/mlapar/web3big/2c9282ff65f294c101671cf8dbfa4a84.jpg"
+       alt="Hotel View"
+       style="width: 90%; max-width: 800px; border-radius: 12px; margin-top: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+    
+
+</section>
+
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: contact@Paradies.com | Phone: +91-9876543210 | Location: SANGLI, India</p>
+  </section>
+
+  <script>
+    function showPage(id) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function registerUser() {
+      const name = document.getElementById('regName').value;
+      const email = document.getElementById('regEmail').value;
+      const phone = document.getElementById('regPhone').value;
+      const room = document.getElementById('regRoom').value;
+
+      if (name && email && phone) {
+        localStorage.setItem('hotelUserEmail', email);
+        const tokenMsgs = [
+          '🎉 You won 10% OFF on your stay!',
+          '🎁 Free Spa Voucher Included!',
+          '🎊 Early Check-in Available!',
+          '🎈 Welcome Gift at Check-In!'
+        ];
+        const token = tokenMsgs[Math.floor(Math.random() * tokenMsgs.length)];
+        const card = document.getElementById('tokenCard');
+        card.innerText = token;
+        card.style.display = 'block';
+      } else {
+        alert('Please fill all fields!');
+      }
+    }
+
+    function loginUser() {
+      const email = document.getElementById('loginEmail').value;
+      const savedEmail = localStorage.getItem('hotelUserEmail');
+      const msgBox = document.getElementById('loginMessage');
+
+      if (email === savedEmail) {
+        msgBox.innerText = '✅ Login successful! Welcome back!';
+        msgBox.style.color = 'green';
+      } else {
+        msgBox.innerText = '❌ Email not found. Please register first.';
+        msgBox.style.color = 'red';
+      }
+    }
+  </script>
+</body>
+</html>
